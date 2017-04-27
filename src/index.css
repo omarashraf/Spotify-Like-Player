@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.main {
+	height: 100vh;
+	background-color: #111;
+}
+
+.home__menu {
+	float: left;
+	width: 15%;
+	height: 100vh;
+	background-color: #000;
+  	position: relative;
+	position: fixed;
+}
+
+.home__main-container {
+	float: right;
+	width: 85%;
+	background-color: #111;	
+}
+
+.clr {
+	clear: both;
+}
+
+.spotify-logo {
+	width: 80%;
+	margin-top: 15%;
+	margin-left: 8%;
+}
+
+.menu-link--inner {
+	text-decoration: none;
+	color: #777777;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.menu-link--inner:hover {
+	color: white;
+	transition: color .2s;
+}
+
+.menu-link {
+	margin-bottom: 5px;
+}
+
+.menu-links {
+	margin-top: 60px;
+}
+
+.home__user {
+	position: absolute;
+	bottom: 8%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: white;
+}
+
+li {
+	list-style: none;
+}
+
+.album-art {
+	height: 245px;
+	width: 245px;
+}
+
+.artist-block {
+	display: inline-block;
+	padding: 10px;
+}
+
+.artist-name {
+	text-align: center;
+	margin-top: 7px;
+}
+
+.artist-name--link {
+	color: white;
+	font-weight: bold;
+}
+
+.artist-name--link:hover, .artist-name--link:active {
+	color: white;
+}
+
+.home__top-artists {
+	margin-top: 2%;
+	color: white;
+	font-weight: 700;
+}
+
+.user-info {
+	font-size: 15px;
+}
+
+.img-color--hover {
+	background-color: rgba(50, 50, 50, 0.9);
+}
+
+.search-titles {
+	color: white;
+	font-weight: 700;
+	margin-top: 2%;
+}
+
+/* SingleArtist */
+.artist__albums {
+
+}
