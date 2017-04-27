@@ -30,7 +30,7 @@ export default class SingleAlbum extends React.Component {
 	}
 
 	render() {
-		let x = '', y = '', z='';
+		let x = 'http://dalelyles.com/musicmp3s/no_cover.jpg', y = '', z='';
 		if (this.state.images[0] !== undefined) {
 			x = this.state.images[0].url;
 		}
@@ -41,18 +41,29 @@ export default class SingleAlbum extends React.Component {
 		return(																																																							
 			<div>
 			    <FixedMenu />
-			    <div className="home__main-container">
+			    <div className="home__main-container album__main--container">
 			    	<div className="row">
 			    		<div className="small-12 columns">
 			    			<div className="row">
 			    				<div className="small-4 columns">
-			    					<img src={x} />
-			    					<h3>{this.state.album.name}</h3>
-			    					<h5>{y}</h5>
-			    					<Link to={`/artist/${z}`}>Artist Profile</Link>
+			    					<div className="row">
+				    					<div className="small-10 small-centered columns">
+				    						<div className="album-info-img">
+						    					<img src={x} />
+						    					<h3 className="album-info--title">{this.state.album.name}</h3>
+						    					<h5 className="album-info--artist">{y}</h5>
+						    					<h6 className="album-tracks-count">{this.state.tracks.length} tracks</h6>
+						    					<div className="artist--button">
+						    						<Link className="spotify-button" to={`/artist/${z}`}>Artist Profile</Link>
+						    					</div>
+					    					</div>
+				    					</div>
+			    					</div>
 			    				</div>
 			    				<div className="small-8 columns">
-									<TrackList tracks={this.state.tracks} />
+			    					<div className="album-tracks-list">
+										<TrackList tracks={this.state.tracks} />
+									</div>
 			    				</div>
 			    			</div>
 			    		</div>

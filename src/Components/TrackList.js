@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function TrackList(props) {
 	return(
@@ -6,22 +7,25 @@ export default function TrackList(props) {
 			<ul>
 			{
 				props.tracks.map((track, i) => {
-					return (<li key={i}>
-								<div className="row">
-									<div className="small-9 columns">
-										<div className="row">
-											<div className="small-2 columns">
-												{track.track_number}
-											</div>
-											<div className="small-8 columns">
-												{track.name}
-											</div>
-											<div className="small-2 columns">
-												{track.duration_ms}
+					return (
+							<li className="single-track-container" key={i}>
+								<Link to={`/`} className="single-track-link">
+									<div className="row">
+										<div className="small-10 columns">
+											<div className="row">
+												<div className="small-2 columns">
+													<span className="track-number">{i + 1}.</span>
+												</div>
+												<div className="small-8 columns">
+													{track.name}
+												</div>
+												<div className="small-2 columns track-duration">
+													{track.duration_ms}
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								</Link>
 							</li>)
 				})
 			}
