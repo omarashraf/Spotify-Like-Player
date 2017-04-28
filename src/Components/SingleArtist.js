@@ -38,11 +38,10 @@ export default class SingleArtist extends React.Component {
 	}
 
 	render() {
-		let x = '';
+		let x = '', y = '';
 		if (this.state.artist_images[0] !== undefined) {
 			x = this.state.artist_images[0].url;
-			console.log("-----");
-			console.log(this.state.artist_images[0].url);
+			y = this.state.artist.followers.total;
 		}
 		return(
 			<div>
@@ -52,7 +51,7 @@ export default class SingleArtist extends React.Component {
 						<img className="artist__cover-img" src={x} />
 						<div className="colored-layer"></div>
 						<div className="artist__detailed-info">
-							<h6>Omar</h6>
+							<h6 className="artist-followers">{y} Followers</h6>
 							<h1 className="artist__name">{ this.state.artist.name }</h1>
 							<a className="spotify-button">FOLLOW</a>
 							<a className="spotify-button spotify--play-all-button">PLAY ALL</a>

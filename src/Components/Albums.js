@@ -31,7 +31,9 @@ export default class Albums extends React.Component {
 						<div className="small-12 small-centered columns">
 							<h1 className="search-titles">Search for albums</h1>
 							<form onSubmit={this.searchAlbums}>
-								<input ref="albums_keyword" type="text" placeholder="Search..."/>
+								<div className="spotify-input-container">
+									<input className="spotify-input" ref="albums_keyword" type="text" placeholder="Search..."/>
+								</div>
 							</form>
 							<AlbumList albums={this.state.albums} />
 						</div>

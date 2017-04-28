@@ -255,3 +255,17 @@ li {
 	color: #fff;
 	text-align: center;
 }
+
+.artist-followers {
+	color: #fff;
+	font-weight: 100;
+}
+
+.menu-link--selected {
+	color: white;
+}
+
+.spotify-input-container input {
+	width: 25%;
+	border-radius: 30px;
+}

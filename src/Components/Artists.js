@@ -30,7 +30,9 @@ export default class Artists extends React.Component {
 						<div className="small-12 small-centered columns">
 							<h1 className="search-titles">Search for artists</h1>
 							<form onSubmit={this.searchArtists}>
-								<input ref="artists_keyword" type="text" placeholder="Search..."/>
+								<div className="spotify-input-container">
+									<input ref="artists_keyword" type="text" placeholder="Search..."/>
+								</div>
 							</form>
 							<ArtistList artists={this.state.artists} />
 						</div>

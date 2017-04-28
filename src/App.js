@@ -6,11 +6,13 @@ import Artists from './Components/Artists';
 import Albums from './Components/Albums';
 import SingleArtist from './Components/SingleArtist';
 import SingleAlbum from './Components/SingleAlbum';
+import $ from 'jquery';
 
 import './index.css';
 import './css/foundation.css';
 import './font-awesome-4.7.0/css/font-awesome.css';
 import './font-awesome-4.7.0/css/font-awesome.min.css';
+
 
 export const API_URL = "https://api.spotify.com/v1";
 
@@ -39,13 +41,13 @@ export function Menu(props) {
   return(
     <ul className="menu-links">
       <li className="menu-link">
-        <Link className="menu-link--inner" to="/">Home</Link> 
+        <Link className="menu-link--inner menu-link-home" to="/">Home</Link> 
       </li>
       <li className="menu-link">
-        <Link className="menu-link--inner" to="/artists">Artists</Link> 
+        <Link className="menu-link--inner menu-link-artists" to="/artists">Artists</Link> 
       </li>
       <li className="menu-link">
-        <Link className="menu-link--inner" to="/albums">Albums</Link>
+        <Link className="menu-link--inner menu-link-albums" to="/albums">Albums</Link>
       </li>
     </ul>
   );
