@@ -27,14 +27,24 @@ export default class Player extends React.Component {
 		}
 		return(
 			<div className="player">
-				<div>
-					<h5>{this.props.current.name}</h5>
-					<p>{this.props.current.artists[0].name}</p>
+				<div className="row">
+					<div className="player-current-info">
+						<h6>{this.props.current.name}</h6>
+						<p>{this.props.current.artists[0].name}</p>
+					</div>
+					<div className="small-12 columns control-board">
+						<a className="single-control" onClick={this.props.previousTrack}>
+							<i className="fa fa-backward"></i>
+						</a>
+						<a className="single-control" onClick={this.togglePlay}>
+							<i className={ this.state.playing ? "fa fa-pause" : "fa fa-play" }></i>
+						</a>
+						<a className="single-control" onClick={this.props.nextTrack}>
+							<i className="fa fa-forward"></i>
+						</a>
+						<ReactPlayer onProgress={this.handleProgress} playing={this.state.playing} url={this.props.current.preview_url} hidden />
+					</div>
 				</div>
-				<button onClick={this.props.previousTrack}>Previous</button>
-				<button onClick={this.togglePlay}>{ this.state.playing ? "Pause" : "Play" }</button>
-				<button onClick={this.props.nextTrack}>Next</button>
-				<ReactPlayer onProgress={this.handleProgress} playing={this.state.playing} url={this.props.current.preview_url} hidden />
 			</div>
 		);
 	}

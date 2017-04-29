@@ -5,7 +5,6 @@ import { API_URL, FixedMenu } from "../App";
 
 import AlbumList from "./AlbumList";
 import TrackList from "./TrackList";
-import TopTracks from "./TopTracks";
 
 export default class SingleArtist extends React.Component {
 	constructor(props) {
