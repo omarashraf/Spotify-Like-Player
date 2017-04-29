@@ -235,15 +235,16 @@ li {
 
 .album__main--container {
 	min-height: 100vh;
+	padding: 30px;
 }
 
-.album-info-img {
+/*.album-info-img {
 	margin-top: 30%;
-}
+}*/
 
-.album-tracks-list {
+/*.album-tracks-list {
 	margin-top: 10%;
-}
+}*/
 
 .album-info--title {
 	color: white;
@@ -290,7 +291,8 @@ li {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	padding: 20px;
+	padding-top: 15px;
+	padding-bottom: 5px;
 }
 
 .control-board {
@@ -301,13 +303,14 @@ li {
 .player-current-info {
 	position: absolute;
 	left: 25px;
-	top: 10px;
-}
+/*	top: 10px;
+*/}
 
 .single-control {
 	padding: 0 10px;
 	color: #fff;
 	font-size: 25px;
+	line-height: 1;
 }
 .player-album {
 	float: left;
@@ -322,19 +325,33 @@ li {
 
 .track-name-player {
 	font-weight: 500;
-	margin-top: 5px;
-}
+/*	margin-top: 5px;
+*/}
 
 .progress-bar {
 	height: 5px;
 	width: 50%;
 	background-color: #666;
 	margin: 0 auto;
-	margin-top: 10px;
 }
 
 .progress-bar-dynamic {
 	height: 100%;
 	width: 0;
 	background-color: #2e9d59;
+}
+
+.player-start-progress {
+	color: #fff;
+	float: left;
+}
+
+.player-end-progress {
+	color: #fff;
+	float: right;
+}
+
+.player-start-end {
+	width: 52%;
+	margin: 0 auto;
 }

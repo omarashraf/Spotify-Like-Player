@@ -17,6 +17,7 @@ export default class Player extends React.Component {
 	}
 
 	handleProgress(playedSoFar) {
+		console.log(playedSoFar.playedSeconds);
 		this.setState({ played: playedSoFar });
 	}
 
@@ -36,7 +37,7 @@ export default class Player extends React.Component {
 						</div>
 						<div className="player-desc">
 							<h6 className="track-name-player">{this.props.current.name}</h6>
-							<p>{this.props.current.artists[0].name}</p>
+							<h6>{this.props.current.artists[0].name}</h6>
 						</div>
 						<div className="clr"></div>
 					</div>
@@ -53,6 +54,13 @@ export default class Player extends React.Component {
 							</a>
 						</div>
 						<div className="progress-bar-container">
+							<div className="player-start-end">
+								<div className="player-start-progress">
+									{ isNaN(this.state.played.playedSeconds) ? 0 : Math.round(this.state.played.playedSeconds)}
+								</div>
+								<div className="player-end-progress">30</div>
+								<div className="clr"></div>
+							</div>
 							<div className="progress-bar">
 								<div className="progress-bar-dynamic" style={{width: this.state.played.played * 100 + "%"}}></div>
 							</div>
