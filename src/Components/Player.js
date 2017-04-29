@@ -15,7 +15,7 @@ export default class Player extends React.Component {
 	}
 
 	handleProgress(played) {
-		console.log(played);
+		// console.log(played);
 	}
 
 	render() {
@@ -29,8 +29,14 @@ export default class Player extends React.Component {
 			<div className="player">
 				<div className="row">
 					<div className="player-current-info">
-						<h6>{this.props.current.name}</h6>
-						<p>{this.props.current.artists[0].name}</p>
+						<div className="player-album">
+							<img width="60" height="60" src="http://dalelyles.com/musicmp3s/no_cover.jpg" />
+						</div>
+						<div className="player-desc">
+							<h6 className="track-name-player">{this.props.current.name}</h6>
+							<p>{this.props.current.artists[0].name}</p>
+						</div>
+						<div className="clr"></div>
 					</div>
 					<div className="small-12 columns control-board">
 						<a className="single-control" onClick={this.props.previousTrack}>
