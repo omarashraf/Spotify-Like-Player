@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import { API_URL, FixedMenu } from "../App";
 import TrackList from './TrackList';
-import AlbumDetails from './AlbumDetails';
 
 export default class SingleAlbum extends React.Component {
 	constructor(props) {
@@ -62,7 +61,7 @@ export default class SingleAlbum extends React.Component {
 			    				</div>
 			    				<div className="small-8 columns">
 			    					<div className="album-tracks-list">
-										<TrackList tracks={this.state.tracks} />
+										<TrackList playTrack={this.props.playTrack} tracks={this.state.tracks} />
 									</div>
 			    				</div>
 			    			</div>

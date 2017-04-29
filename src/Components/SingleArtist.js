@@ -60,7 +60,7 @@ export default class SingleArtist extends React.Component {
 							<div className="row">
 								<div className="small-10 columns">
 									<h1 className="artist__top-tracks-title">Top Tracks</h1>
-									<TrackList tracks={this.state.top_tracks} />
+									<TrackList playTrack={this.props.playTrack} tracks={this.state.top_tracks} />
 								</div>
 							</div>
 						</div>

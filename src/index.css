@@ -69,6 +69,8 @@ li {
 .album-art {
 	height: 245px;
 	width: 245px;
+	position: relative;
+	top: 0;
 }
 
 .artist-block {
@@ -81,7 +83,8 @@ li {
 	text-align: center;
 	margin-top: 7px;
 	max-width: 250px;
-	height: 55px
+	height: 50px;
+	text-overflow: ellipsis;
 }
 
 .artist-name--link {
@@ -261,11 +264,31 @@ li {
 	font-weight: 100;
 }
 
-.menu-link--selected {
+.active--link {
 	color: white;
 }
 
 .spotify-input-container input {
 	width: 25%;
 	border-radius: 30px;
+}
+
+
+/* player */
+.player {
+	position: fixed;
+	background-color: red;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px;
+}
+
+.blur-album-art {
+	background-color: rgba(0, 0, 0, 0.7);
+	transition: background-color .2s;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
 }
