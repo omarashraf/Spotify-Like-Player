@@ -5,17 +5,19 @@ export default class Player extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			playing: true
+			playing: true,
+			played: {}
 		}
 		this.togglePlay = this.togglePlay.bind(this);
+		this.handleProgress = this.handleProgress.bind(this);
 	}
 
 	togglePlay() {
 		this.setState({ playing: !this.state.playing });
 	}
 
-	handleProgress(played) {
-		// console.log(played);
+	handleProgress(playedSoFar) {
+		this.setState({ played: playedSoFar });
 	}
 
 	render() {
@@ -39,15 +41,22 @@ export default class Player extends React.Component {
 						<div className="clr"></div>
 					</div>
 					<div className="small-12 columns control-board">
-						<a className="single-control" onClick={this.props.previousTrack}>
-							<i className="fa fa-backward"></i>
-						</a>
-						<a className="single-control" onClick={this.togglePlay}>
-							<i className={ this.state.playing ? "fa fa-pause" : "fa fa-play" }></i>
-						</a>
-						<a className="single-control" onClick={this.props.nextTrack}>
-							<i className="fa fa-forward"></i>
-						</a>
+						<div>
+							<a className="single-control" onClick={this.props.previousTrack}>
+								<i className="fa fa-backward"></i>
+							</a>
+							<a className="single-control" onClick={this.togglePlay}>
+								<i className={ this.state.playing ? "fa fa-pause" : "fa fa-play" }></i>
+							</a>
+							<a className="single-control" onClick={this.props.nextTrack}>
+								<i className="fa fa-forward"></i>
+							</a>
+						</div>
+						<div className="progress-bar-container">
+							<div className="progress-bar">
+								<div className="progress-bar-dynamic" style={{width: this.state.played.played * 100 + "%"}}></div>
+							</div>
+						</div>
 						<ReactPlayer onProgress={this.handleProgress} playing={this.state.playing} url={this.props.current.preview_url} hidden />
 					</div>
 				</div>

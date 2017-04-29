@@ -324,3 +324,17 @@ li {
 	font-weight: 500;
 	margin-top: 5px;
 }
+
+.progress-bar {
+	height: 5px;
+	width: 50%;
+	background-color: #666;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.progress-bar-dynamic {
+	height: 100%;
+	width: 0;
+	background-color: #2e9d59;
+}
