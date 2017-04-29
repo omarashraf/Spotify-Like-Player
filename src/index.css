@@ -204,6 +204,7 @@ li {
 .single-track-container {
 	padding: 10px 0;
 	margin-left: 35px;
+	cursor: pointer;
 }
 
 .single-track-container:hover {
@@ -237,14 +238,6 @@ li {
 	min-height: 100vh;
 	padding: 30px;
 }
-
-/*.album-info-img {
-	margin-top: 30%;
-}*/
-
-/*.album-tracks-list {
-	margin-top: 10%;
-}*/
 
 .album-info--title {
 	color: white;
@@ -303,8 +296,7 @@ li {
 .player-current-info {
 	position: absolute;
 	left: 25px;
-/*	top: 10px;
-*/}
+}
 
 .single-control {
 	padding: 0 10px;
@@ -325,8 +317,7 @@ li {
 
 .track-name-player {
 	font-weight: 500;
-/*	margin-top: 5px;
-*/}
+}
 
 .progress-bar {
 	height: 5px;
@@ -354,4 +345,8 @@ li {
 .player-start-end {
 	width: 52%;
 	margin: 0 auto;
+}
+
+.active-track {
+	color: #2e9d59;
 }

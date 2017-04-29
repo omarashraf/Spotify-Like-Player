@@ -66,9 +66,11 @@ class App extends Component {
           <Route path="/artists" component={Artists} />
           <Route path="/albums" component={Albums} />
           <Route path="/artist/:id" render={(routeParams) => 
-                      <SingleArtist {...routeParams} playTrack={this.playTrack} /> } />
+                      <SingleArtist {...routeParams} playTrack={this.playTrack}
+                      currentTrack={this.state.queue[this.state.currentTrackI]} /> } />
           <Route path="/album/:id" render={(routeParams) => 
-                      <SingleAlbum {...routeParams} playTrack={this.playTrack} />} />
+                      <SingleAlbum {...routeParams} playTrack={this.playTrack} 
+                      currentTrack={this.state.queue[this.state.currentTrackI]} />} />
           <Player nextTrack={this.nextTrack} previousTrack={this.previousTrack} 
                       current={this.state.queue[this.state.currentTrackI]} />
         </div>

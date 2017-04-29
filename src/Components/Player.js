@@ -17,7 +17,6 @@ export default class Player extends React.Component {
 	}
 
 	handleProgress(playedSoFar) {
-		console.log(playedSoFar.playedSeconds);
 		this.setState({ played: playedSoFar });
 	}
 
@@ -26,7 +25,6 @@ export default class Player extends React.Component {
 			return null;
 		}
 		if (!this.props.current.preview_url) {
-			alert("No track!");
 		}
 		return(
 			<div className="player">

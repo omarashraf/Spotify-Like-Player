@@ -61,7 +61,9 @@ export default class SingleAlbum extends React.Component {
 			    				</div>
 			    				<div className="small-8 columns">
 			    					<div className="album-tracks-list">
-										<TrackList playTrack={this.props.playTrack} tracks={this.state.tracks} />
+										<TrackList playTrack={this.props.playTrack} 
+										tracks={this.state.tracks}
+										currentTrack={this.props.currentTrack} />
 									</div>
 			    				</div>
 			    			</div>
