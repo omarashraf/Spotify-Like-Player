@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import { API_URL, FixedMenu } from "../App";
+import { getToken } from '../Utils/Api';
 
 import AlbumList from "./AlbumList";
 import TrackList from "./TrackList";
@@ -17,19 +18,21 @@ export default class SingleArtist extends React.Component {
 		}
 	}
 	
-	componentDidMount() {
+	async componentDidMount() {
 		const id = this.props.match.params.id;
-		axios.get(`${API_URL}/artists/${id}`).then((response) => {
+		const token = await getToken();
+
+		axios.get(`${API_URL}/artists/${id}`, { headers: { 'Authorization': 'Bearer ' + token } }).then((response) => {
 			console.log("Artist -- ");
 			console.log(response);
 			this.setState({ artist: response.data, artist_images: response.data.images });
 		});
 
-		axios.get(`${API_URL}/artists/${id}/albums`).then((response) => {
+		axios.get(`${API_URL}/artists/${id}/albums`, { headers: { 'Authorization': 'Bearer ' + token } }).then((response) => {
 			this.setState({ albums: response.data.items });
 		});
 
-		axios.get(`${API_URL}/artists/${id}/top-tracks?country=SE`).then((response) => {
+		axios.get(`${API_URL}/artists/${id}/top-tracks?country=SE`, { headers: { 'Authorization': 'Bearer ' + token } }).then((response) => {
 			console.log("Top Tracks -- ");
 			console.log(response);
 			this.setState({ top_tracks: response.data.tracks });

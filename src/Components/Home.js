@@ -3,6 +3,7 @@ import axios from 'axios';
 
 
 import { API_URL, FixedMenu } from "../App";
+import { getToken } from '../Utils/Api';
 import ArtistList from './ArtistList';
 
 export default class Home extends React.Component {
@@ -14,8 +15,9 @@ export default class Home extends React.Component {
 		}
 	}
 
-	componentDidMount() {
-		axios.get(`${API_URL}/search?type=artist&q=q`).then((response)=> {
+	async componentDidMount() {
+		const token = await getToken();
+		axios.get(`${API_URL}/search?type=artist&q=q`, { headers: { 'Authorization': 'Bearer ' + token } }).then((response)=> {
 			this.setState({ artists: response.data.artists.items });
 		});
 	}

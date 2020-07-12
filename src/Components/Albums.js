@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import AlbumList from './AlbumList';
 
+import { getToken } from '../Utils/Api';
 import { API_URL, FixedMenu } from "../App";
 
 export default class Albums extends React.Component {
@@ -15,10 +16,13 @@ export default class Albums extends React.Component {
 		this.searchAlbums = this.searchAlbums.bind(this);
 	}
 
-	searchAlbums(event) {
+	async searchAlbums(event) {
 		event.preventDefault();
-		axios.get(`${API_URL}/search?type=album&q=${this.refs.albums_keyword.value}`).then((response)=> {
+		const token = await getToken();
+		axios.get(`${API_URL}/search?type=album&q=${this.refs.albums_keyword.value}`, { headers: { 'Authorization': 'Bearer ' + token } }).then((response)=> {
 			this.setState({ albums: response.data.albums.items });
+		}).catch(err => {
+			console.log(err.response)
 		});
 	}
 

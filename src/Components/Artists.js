@@ -2,7 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 import { API_URL, FixedMenu } from "../App";
+import { getToken } from '../Utils/Api';
 import ArtistList from './ArtistList';
+
 
 export default class Artists extends React.Component {
 
@@ -14,10 +16,13 @@ export default class Artists extends React.Component {
 		this.searchArtists = this.searchArtists.bind(this);
 	}
 
-	searchArtists(event) {
-		event.preventDefault();
-		axios.get(`${API_URL}/search?type=artist&q=${this.refs.artists_keyword.value}`).then((response)=> {
+	async searchArtists(event) {
+		event.preventDefault();		
+		const token = await getToken();
+		axios.get(`${API_URL}/search?type=artist&q=${this.refs.artists_keyword.value}`, { headers: { 'Authorization': 'Bearer ' + token } }).then((response)=> {
 			this.setState({ artists: response.data.artists.items });
+		}).catch(err => {
+			console.log(err.response);
 		});
 	}
 

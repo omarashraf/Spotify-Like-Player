@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { API_URL, FixedMenu } from "../App";
 import TrackList from './TrackList';
+import { getToken } from '../Utils/Api';
 
 export default class SingleAlbum extends React.Component {
 	constructor(props) {
@@ -16,13 +17,14 @@ export default class SingleAlbum extends React.Component {
 		}
 	}
 
-	componentDidMount() {
+	async componentDidMount() {
 		const id = this.props.match.params.id;
-		axios.get(`${API_URL}/albums/${id}/tracks`).then((response) => {
+		const token = await getToken();
+		axios.get(`${API_URL}/albums/${id}/tracks`, { headers: { 'Authorization': 'Bearer ' + token } }).then((response) => {
 			this.setState({ tracks: response.data.items });
 		});
 
-		axios.get(`${API_URL}/albums/${id}`).then((response)=> {
+		axios.get(`${API_URL}/albums/${id}`, { headers: { 'Authorization': 'Bearer ' + token } }).then((response)=> {
 			this.setState({ album: response.data, images: response.data.images,
 			 				artists: response.data.artists });
 		});
